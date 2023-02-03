@@ -22,4 +22,8 @@ class ProjectController extends Controller
             ], 404);
         }
     }
+
+    public function filterByType($type_id) {
+        return Project::where('type_id', $type_id)->with('type', 'technologies')->get();
+    }
 }

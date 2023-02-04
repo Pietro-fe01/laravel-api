@@ -15,7 +15,7 @@ class ProjectController extends Controller
 
     public function show($slug) { 
         try {
-            return Project::where('slug', $slug)->with('type', 'technologies')->firstOrFail();
+            return Project::where('slug', $slug)->with('type', 'technologies', 'reviews')->firstOrFail();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $te) {
             return response([
                 'error' => '404 | Project not found'

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +38,8 @@ use Illuminate\Support\Facades\Route;
 ----------------------*/
     // Get all types api/types
     Route::get('types', [TypeController::class, 'index']);
+
+/*----------------------
+    REVIEWS API 
+----------------------*/
+    Route::post('reviews/{project_id}', [ReviewController::class, 'store']);

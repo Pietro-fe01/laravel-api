@@ -1,1 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
+
+// In projects -> show.blade.php
+div.reviews-section {
+    .card {
+        width: calc(100% / 2 - 30px);
+        margin: 0 15px;
+    }
+}

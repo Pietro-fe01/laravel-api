@@ -51,21 +51,34 @@
     @endif
 
     @if ( $project->reviews->isNotEmpty() )
-        <h2>Reviews:</h2>
-        <div class="reviews-section">
-            @foreach ($project->reviews as $review)
-                {{ $review->user_name }}
-                {{ $review->text_review }}
-                <form action="{{ route('admin.reviews.destroy', $review) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger">Delete review</button>
-                </form>
-            @endforeach
+        <div class=" mt-3">
+            <h2>Reviews:</h2>
+            <div class="reviews-section d-flex flex-wrap">
+                @foreach ($project->reviews as $review)
+                    <div class="card text-center mb-4">
+                        <div class="card-header">
+                            Reviewed by <span class="text-decoration-underline">{{ $review->user_name }}</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ $review->text_review }}</p>
+                            <form action="{{ route('admin.reviews.destroy', $review) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+            
+                                <button type="submit" class="btn btn-danger">Delete review</button>
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     @else 
-        <h2>No reviews have been provided. Let us know your thoughts!</h2>
+        <div class="mt-3">
+            <h4>No reviews have been provided. Let us know your thoughts!</h4>
+        </div>
     @endif
 
     {{-- Nav links --}}

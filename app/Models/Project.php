@@ -25,4 +25,8 @@ class Project extends Model
     public function technologies() {
         return $this->belongsToMany(Technology::class);
     }
+
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
 }

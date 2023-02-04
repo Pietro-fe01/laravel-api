@@ -50,6 +50,24 @@
         </div>
     @endif
 
+    @if ( $project->reviews->isNotEmpty() )
+        <h2>Reviews:</h2>
+        <div class="reviews-section">
+            @foreach ($project->reviews as $review)
+                {{ $review->user_name }}
+                {{ $review->text_review }}
+                <form action="{{ route('admin.reviews.destroy', $review) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-danger">Delete review</button>
+                </form>
+            @endforeach
+        </div>
+    @else 
+        <h2>Non sono presenti commenti per questo project</h2>
+    @endif
+
     {{-- Nav links --}}
     <div class="mt-5">
         <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Projects List</a>

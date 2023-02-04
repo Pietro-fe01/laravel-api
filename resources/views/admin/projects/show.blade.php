@@ -65,7 +65,7 @@
             @endforeach
         </div>
     @else 
-        <h2>Non sono presenti commenti per questo project</h2>
+        <h2>No reviews have been provided. Let us know your thoughts!</h2>
     @endif
 
     {{-- Nav links --}}

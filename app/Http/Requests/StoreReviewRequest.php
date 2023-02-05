@@ -25,7 +25,7 @@ class StoreReviewRequest extends FormRequest
     {
         return [
             'user_name' => 'nullable|string|max:150',
-            'text_review' => 'nullable|string'
+            'text_review' => 'required|string'
         ];
     }
 }

@@ -24,7 +24,8 @@ class StoreReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            'user_name' => 'nullable|string|max:150',
+            'text_review' => 'nullable|string'
         ];
     }
 }

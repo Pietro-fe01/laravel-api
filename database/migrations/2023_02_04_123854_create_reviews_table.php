@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('user_name', 150)->nullable();
             $table->text('text_review');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
+            $table->dateTime('review_created');
             $table->timestamps();
         });
     }

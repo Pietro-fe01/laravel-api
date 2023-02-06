@@ -42,4 +42,4 @@ use Illuminate\Support\Facades\Route;
 /*----------------------
     REVIEWS API 
 ----------------------*/
-    Route::get('reviews/{project_id}', [ReviewController::class, 'store']);
+    Route::post('reviews/{project_id}', [ReviewController::class, 'store']);

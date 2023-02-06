@@ -69,7 +69,7 @@
                             </form>
                         </div>
                         <div class="card-footer text-muted">
-                            2 days ago
+                            {{ $review->review_created }}
                         </div>
                     </div>
                 @endforeach

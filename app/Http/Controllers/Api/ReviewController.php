@@ -20,5 +20,7 @@ class ReviewController extends Controller
             $new_review->text_review = $reviewData['text_review'];
             $new_review->review_created = Carbon::now();
         $new_review->save();
+
+        return $new_review;
     }
 }

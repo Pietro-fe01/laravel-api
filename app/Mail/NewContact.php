@@ -9,49 +9,43 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class NewReview extends Mailable
+class NewContact extends Mailable
 {
     use Queueable, SerializesModels;
 
-    // Definiamo la variabile di instanza come public
-    public $review;
+    public $contact;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($_review)
+    public function __construct($_contact)
     {
-        $this->review = $_review;
+        $this->contact = $_contact;
     }
 
     /**
      * Get the message envelope.
      *
-     * Questo metodo si occupa dell'oggetto del messaggio ed indirizzo di risposta (replayTo)
-     * 
      * @return \Illuminate\Mail\Mailables\Envelope
      */
     public function envelope()
     {
         return new Envelope(
-            replyTo: 'noreply@boolprojects.com',
-            subject: 'New Review',
+            subject: 'New Contact',
         );
     }
 
     /**
      * Get the message content definition.
-     * 
-     * Questo metodo si occupa del contenuto che verrà mostrato nella e-mail tramite una view blade
      *
      * @return \Illuminate\Mail\Mailables\Content
      */
     public function content()
     {
         return new Content(
-            markdown: 'emails.new-review',
+            view: 'emails.new-contact',
         );
     }
 

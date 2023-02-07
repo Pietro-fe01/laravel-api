@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\TypeController;
@@ -43,3 +44,8 @@ use Illuminate\Support\Facades\Route;
     REVIEWS API 
 ----------------------*/
     Route::post('reviews/{project}', [ReviewController::class, 'store']);
+
+/*----------------------
+    CONTACTS API 
+----------------------*/
+    Route::post('contact-form', [ContactController::class, 'contact_registration']);

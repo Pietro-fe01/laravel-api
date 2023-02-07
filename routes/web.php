@@ -22,10 +22,7 @@ Route::get('/', function () {
     return view('new-welcome');
 });
 
-Route::middleware('auth')
-->prefix('admin')
-->name('admin.')
-->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');

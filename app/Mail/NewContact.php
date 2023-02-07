@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Markdown;
 use Illuminate\Queue\SerializesModels;
 
 class NewContact extends Mailable
@@ -34,6 +35,7 @@ class NewContact extends Mailable
     {
         return new Envelope(
             subject: 'New Contact',
+            replyTo: $this->contact['email'],
         );
     }
 
@@ -45,7 +47,7 @@ class NewContact extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.new-contact',
+            markdown: 'emails.new-contact',
         );
     }
 
